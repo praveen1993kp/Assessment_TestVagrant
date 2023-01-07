@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings/
+test-output/
+target/
+.Report/
+.idea/
+.metadata/
+TestVagrant_Assessment.iml
