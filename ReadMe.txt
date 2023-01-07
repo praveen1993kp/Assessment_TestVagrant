@@ -3,7 +3,7 @@
 # Dependencies Used:
 1. Selenium WebDriver    - 4.6.0    -- For automating Browser UI scenarios
 2. TestNG                - 7.4.0    -- The Test Runner to execute Suite
-3. Extent Reports        - 2.40.1   -- The HTML Reporting Library
+3. Extent Reports        - 5.0.9    -- The HTML Reporting Library
 4. Maven Compiler Plugin - 3.8.1    -- To Compile before running as Maven Test
 5. Maven Surefire Plugin - 3.0.0    -- To Run as Maven Test
 
@@ -12,9 +12,9 @@
 1. Factory Design Pattern:
 	* For driver initialization based on different browser name as input, Factory Design pattern is used
 
-2. Adapter Design Pattern:
-	* For configuring any new report at later time, interface is provided
-	* This interface will help to configure new reports like Allure,etc., without affecting existing reporting setup
+2. Abstract Factory
+
+3. Observer Pattern
 
 # Some of the Best Coding Practices followed:
 1. Appropriate Naming Conventions
@@ -30,27 +30,27 @@
 * Step 1 : Use the main source for your framework design and test source for project specific configuration and tests
 * Step 2 : Use base/GenericKeywords class to add Project specific reusable methods
 * Step 3 : Use base/SeleniumGenericKeywords and base/NonSeleniumGenericKeywords interfaces to add abstract methods of GenericKeywords
-* Step 4 : Use reporter/ReporterInterface for reporter specific abstract methods
-* Step 5 : Use reporter/ExtentReportListener for extent report specific method definitions
+* Step 4 : Use reporter/ExtentReport for reporter specific implementation
+* Step 5 : Use reporter/ReportListener for ITestListener implementation.
 * Step 6 : Use testExecutionEngine/ExecutionEngine for defining and configuring before/after methods
 * Step 7 : Use utils/CommonUtils class to configure Framework specific generic methods
 * Step 8 : Use src/test/pageObjects/ to have locators specific to each page available in pages/
 * Step 9 : Use src/test/pages to configure page specific methods
 * Step 10: Use src/test/testcases/ to define sequence of testSteps and perform assertions
-* Step 11: Use src/test/resources/config.properties for configuring dynamic parameters like urls, movieName
-* Step 12: For reports, after a run is completed, navigate to test-output
+* Step 11: Use src/test/resources/Application.properties for configuring dynamic parameters like urls, movieName
+* Step 12: For reports, after a run is completed, navigate to Reports
 
 
 # Ways to Run Test:
 * Approach 1 : Use Run Suite Option from testng.xml
 * Approach 2 : Use Run As/TestNG Suite
-* Approach 3 : Use "Run All" option available in testcases/TC01_Assertion.java
+* Approach 3 : Use "Run All" option available in testcases/ValidateMovieDetailsTest.java
 * Approach 4 : Using command line, Navigate to project directory(./TestVagrant_Assessment) and execute "mvn clean test"
-* Approach 5 : Use Remote Jenkins URL to trigger (In Progress since it requires a Server to be executed)
+* Approach 5 : Use Remote Jenkins URL to trigger (Job configured but unable to run remotely due to unavailability of infrastructure)
 
 
 # Current Build Status:
-* The build is configured to run for single/multiple movies
+* The build is configured to run for single/multiple movies parallelly
 
 
 # How to configure new movie:
@@ -64,4 +64,7 @@
 * Step 2 : Run the test using any of the above approaches
 
 
-
+# Scope for Enhancements:
+* TestData : GoogleSheets/Excel
+* Framework design enhancements
+* Jenkins/BrowserStack(Similar platforms) execution
